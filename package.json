@@ -1,6 +1,6 @@
 {
   "name": "p-reduce",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Reduce a list of values using promises into a promise for a value",
   "license": "MIT",
   "repository": "sindresorhus/p-reduce",
