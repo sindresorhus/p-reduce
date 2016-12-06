@@ -14,6 +14,7 @@ module.exports = (iterable, reducer, initVal) => new Promise((resolve, reject) =
 		Promise.all([total, el.value])
 			.then(value => {
 				next(reducer(value[0], value[1], i++));
+				return null;
 			})
 			.catch(reject);
 	};
