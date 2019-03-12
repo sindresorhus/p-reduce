@@ -8,7 +8,7 @@ Useful when you need to calculate some accumulated value based on async resource
 ## Install
 
 ```
-$ npm install --save p-reduce
+$ npm install p-reduce
 ```
 
 
@@ -16,21 +16,24 @@ $ npm install --save p-reduce
 
 ```js
 const pReduce = require('p-reduce');
-const humanInfo = require('human-info'); // not a real module
+const humanInfo = require('human-info'); // Not a real module
 
-const names = [
-	getUser('sindresorhus').then(info => info.name),
-	'Addy Osmani',
-	'Pascal Hartig',
-	'Stephen Sawchuk'
-];
+(async () => {
+	const names = [
+		getUser('sindresorhus').then(info => info.name),
+		'Addy Osmani',
+		'Pascal Hartig',
+		'Stephen Sawchuk'
+	];
 
-pReduce(names, (total, name) => {
-	return humanInfo(name).then(info => total + info.age);
-}, 0).then(totalAge => {
+	const totalAge = await pReduce(names, async (total, name) => {
+		const info = await humanInfo(name);
+		return total + info.age;
+	}, 0);
+
 	console.log(totalAge);
 	//=> 125
-});
+})();
 ```
 
 
@@ -54,7 +57,7 @@ Expected to return a value. If a `Promise` is returned, it's awaited before cont
 
 #### initialValue
 
-Type: `any`
+Type: `unknown`
 
 Value to use as `previousValue` in the first `reducer` invocation.
 

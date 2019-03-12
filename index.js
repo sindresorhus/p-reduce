@@ -1,8 +1,8 @@
 'use strict';
 
-const pReduce = (iterable, reducer, initVal) => new Promise((resolve, reject) => {
+const pReduce = (iterable, reducer, initialValue) => new Promise((resolve, reject) => {
 	const iterator = iterable[Symbol.iterator]();
-	let i = 0;
+	let index = 0;
 
 	const next = async total => {
 		const element = iterator.next();
@@ -14,13 +14,13 @@ const pReduce = (iterable, reducer, initVal) => new Promise((resolve, reject) =>
 
 		try {
 			const value = await Promise.all([total, element.value]);
-			next(reducer(value[0], value[1], i++));
+			next(reducer(value[0], value[1], index++));
 		} catch (error) {
 			reject(error);
 		}
 	};
 
-	next(initVal);
+	next(initialValue);
 });
 
 module.exports = pReduce;
