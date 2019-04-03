@@ -24,4 +24,5 @@ const pReduce = (iterable, reducer, initialValue) => new Promise((resolve, rejec
 });
 
 module.exports = pReduce;
+// TODO: Remove this for the next major release
 module.exports.default = pReduce;
