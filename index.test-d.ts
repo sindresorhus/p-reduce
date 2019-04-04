@@ -1,5 +1,5 @@
-import {expectType} from 'tsd-check';
-import pReduce from '.';
+import {expectType} from 'tsd';
+import pReduce = require('.');
 
 const names = [
 	Promise.resolve('sindresorhus'),
