@@ -13,7 +13,7 @@ declare const pReduce: {
 	@param input - Iterated over serially in the `reducer` function.
 	@param reducer - Expected to return a value. If a `Promise` is returned, it's awaited before continuing with the next iteration.
 	@param initialValue - Value to use as `previousValue` in the first `reducer` invocation.
-	@returns Resolves when all promises in `input` and ones returned from `reducer` are fulfilled, or rejects if any of the promises reject. The resolved value is the result of the reduction.
+	@returns A `Promise` that is fulfilled when all promises in `input` and ones returned from `reducer` are fulfilled, or rejects if any of the promises reject. The resolved value is the result of the reduction.
 
 	@example
 	```
