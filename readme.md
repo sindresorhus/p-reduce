@@ -39,7 +39,7 @@ const humanInfo = require('human-info'); // Not a real module
 
 ## API
 
-### pReduce(input, reducer, [initialValue])
+### pReduce(input, reducer, initialValue?)
 
 Returns a `Promise` that is fulfilled when all promises in `input` and ones returned from `reducer` are fulfilled, or rejects if any of the promises reject. The fulfilled value is the result of the reduction.
 
@@ -70,6 +70,14 @@ Value to use as `previousValue` in the first `reducer` invocation.
 - [More…](https://github.com/sindresorhus/promise-fun)
 
 
-## License
+---
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+<div align="center">
+	<b>
+		<a href="https://tidelift.com/subscription/pkg/npm-p-reduce?utm_source=npm-p-reduce&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
+	</b>
+	<br>
+	<sub>
+		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
+	</sub>
+</div>
