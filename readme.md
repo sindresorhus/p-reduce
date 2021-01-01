@@ -1,4 +1,4 @@
-# p-reduce [![Build Status](https://travis-ci.org/sindresorhus/p-reduce.svg?branch=master)](https://travis-ci.org/sindresorhus/p-reduce)
+# p-reduce
 
 > Reduce a list of values using promises into a promise for a value
 
