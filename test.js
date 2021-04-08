@@ -1,6 +1,6 @@
 import test from 'ava';
 import delay from 'delay';
-import pReduce from '.';
+import pReduce from './index.js';
 
 test('main', async t => {
 	const fixture = [
@@ -18,7 +18,7 @@ test('rejects', async t => {
 		delay.reject(50, {value: new Error('foo')})
 	];
 
-	await t.throwsAsync(pReduce(fixture, (a, b) => a + b, 0), 'foo');
+	await t.throwsAsync(pReduce(fixture, (a, b) => a + b, 0), {message: 'foo'});
 });
 
 test('reducer throws', async t => {
@@ -29,9 +29,9 @@ test('reducer throws', async t => {
 
 	await t.throwsAsync(pReduce(fixture, () => {
 		throw new Error('foo');
-	}), 'foo');
+	}), {message: 'foo'});
 });
 
 test('handles empty iterable', async t => {
-	t.deepEqual(await pReduce([], () => {}, 0), 0);
+	t.is(await pReduce([], () => {}, 0), 0);
 });

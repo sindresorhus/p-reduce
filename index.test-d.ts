@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import pReduce = require('.');
+import pReduce from './index.js';
 
 const names = [
 	Promise.resolve('sindresorhus'),
@@ -31,7 +31,7 @@ const names2 = [
 expectType<Promise<string>>(
 	pReduce<string | number, string>(
 		names2,
-		(allNames, name) => {
+		async (allNames, name) => {
 			expectType<string>(allNames);
 			expectType<string | number>(name);
 			return Promise.resolve(`${allNames},${name}`);

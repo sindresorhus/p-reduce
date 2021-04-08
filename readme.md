@@ -4,38 +4,33 @@
 
 Useful when you need to calculate some accumulated value based on async resources.
 
-
 ## Install
 
 ```
 $ npm install p-reduce
 ```
 
-
 ## Usage
 
 ```js
-const pReduce = require('p-reduce');
-const humanInfo = require('human-info'); // Not a real module
+import pReduce from 'p-reduce';
+import humanInfo from 'human-info'; // Not a real module
 
-(async () => {
-	const names = [
-		getUser('sindresorhus').then(info => info.name),
-		'Addy Osmani',
-		'Pascal Hartig',
-		'Stephen Sawchuk'
-	];
+const names = [
+	getUser('sindresorhus').then(info => info.name),
+	'Addy Osmani',
+	'Pascal Hartig',
+	'Stephen Sawchuk'
+];
 
-	const totalAge = await pReduce(names, async (total, name) => {
-		const info = await humanInfo(name);
-		return total + info.age;
-	}, 0);
+const totalAge = await pReduce(names, async (total, name) => {
+	const info = await humanInfo(name);
+	return total + info.age;
+}, 0);
 
-	console.log(totalAge);
-	//=> 125
-})();
+console.log(totalAge);
+//=> 125
 ```
-
 
 ## API
 
@@ -61,14 +56,12 @@ Type: `unknown`
 
 Value to use as `previousValue` in the first `reducer` invocation.
 
-
 ## Related
 
 - [p-each-series](https://github.com/sindresorhus/p-each-series) - Iterate over promises serially
 - [p-map-series](https://github.com/sindresorhus/p-map-series) - Map over promises serially
 - [p-map](https://github.com/sindresorhus/p-map) - Map over promises concurrently
 - [More…](https://github.com/sindresorhus/promise-fun)
-
 
 ---
 
