@@ -15,7 +15,7 @@ Reduce a list of values using promises into a promise for a value.
 @example
 ```
 import pReduce from 'p-reduce';
-import humanInfo from 'human-info'; // Not a real module
+import humanInfo from 'human-info'; // Not a real package
 
 const names = [
 	getUser('sindresorhus').then(info => info.name),

@@ -4,17 +4,19 @@
 
 Useful when you need to calculate some accumulated value based on async resources.
 
+**Please don't use it to [write unreadable code](https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/no-array-reduce.md).**
+
 ## Install
 
-```
-$ npm install p-reduce
+```sh
+npm install p-reduce
 ```
 
 ## Usage
 
 ```js
 import pReduce from 'p-reduce';
-import humanInfo from 'human-info'; // Not a real module
+import humanInfo from 'human-info'; // Not a real package
 
 const names = [
 	getUser('sindresorhus').then(info => info.name),
